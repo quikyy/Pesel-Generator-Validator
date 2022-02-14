@@ -6,17 +6,18 @@ import pl.javawannabe.Pesels.Pesel_Datebase;
 import java.util.Scanner;
 
 public class Menu {
+    Pesel_Datebase pesel_datebase = new Pesel_Datebase();
     Scanner sc = new Scanner(System.in);
+
     public void displayMenu(){
         System.out.println("");
         System.out.println("Choose option from menu:");
         System.out.println("1. Check PESEL for details");
         System.out.println("2. Show checked PESELS");
         System.out.println("3. Generate PESEL");
+        System.out.println("4. Exit");
         System.out.println("");
     }
-
-    Pesel_Datebase pesel_datebase = new Pesel_Datebase();
 
     public void checkPesel(){
         System.out.println("Enter PESEL: ");
@@ -61,4 +62,7 @@ public class Menu {
         System.out.println("Wrong input.");
     }
 
+    public boolean quit() {
+            return false;
+    }
 }

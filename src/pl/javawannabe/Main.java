@@ -19,6 +19,9 @@ public class Main {
                 case "3":
                     menu.generatePesel();
                     break;
+                case "4":
+                    keep = menu.quit();
+                    break;
                 default:
                     menu.wrongInput();
                     break;
