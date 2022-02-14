@@ -14,8 +14,15 @@ public class Main {
                     menu.checkPesel();
                     break;
                 case "2":
+                    menu.showCheckedPesels();
+                    break;
+                case "3":
                     menu.generatePesel();
                     break;
+                default:
+                    menu.wrongInput();
+                    break;
+
             }
         }
 
