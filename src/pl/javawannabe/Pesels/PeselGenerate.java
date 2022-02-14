@@ -4,8 +4,8 @@ import java.time.YearMonth;
 import java.util.Random;
 public class PeselGenerate extends Pesel implements IPesels {
     Random random = new Random();
-    public String Iyear;
-    public String _sex;
+    private String Iyear;
+    private String _sex;
     public PeselGenerate(){
         super();
         this.month = generateMonth();
