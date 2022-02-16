@@ -12,11 +12,7 @@ public class Menu {
     public void displayMenu(){
         System.out.println("");
         System.out.println("Choose option from menu:");
-        System.out.println("1. Check PESEL for details");
-        System.out.println("2. Show checked PESELS");
-        System.out.println("3. Generate PESEL");
-        System.out.println("4. Exit");
-        System.out.println("");
+        System.out.println("1. Check PESEL for details\n2. Show checked PESELS\n3. Generate PESEL\n4. Exit\n");
     }
 
     public void checkPesel(){
@@ -25,10 +21,12 @@ public class Menu {
             try {
                 PeselCheck pesel = new PeselCheck(userInput);
                 pesel.showInformation(pesel);
-                pesel_datebase.add(pesel);
+                if(pesel.isCorrect()){
+                    pesel_datebase.addToDataBase(pesel);
+                }
             }
             catch (Exception e){
-                wrongInput();
+                System.out.println("PESEL format or lenght is incorrect");
             }
     }
 
@@ -48,14 +46,16 @@ public class Menu {
     }
 
     public void showCheckedPesels(){
-        if(pesel_datebase.getCheckedSize() > 0){
-            for(PeselCheck obj: Pesel_Datebase.getCheckedPesels()){
+        if(pesel_datebase.getDataBaseSize() > 0){
+            for(PeselCheck obj: Pesel_Datebase.getDataBase()){
+
                 obj.showInformation(obj);
             }
         }
         else{
             System.out.println("List is empty.");
         }
+        System.out.println("Amount: " + pesel_datebase.getDataBaseSize());
     }
 
     public void wrongInput(){

@@ -48,7 +48,7 @@ public class Pesel{
         return isValidate;
     }
 
-    protected boolean isCorrect() {
+    public boolean isCorrect() {
         return isCorrect;
     }
 }

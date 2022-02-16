@@ -4,17 +4,18 @@ import java.util.ArrayList;
 public class PeselCheck extends Pesel implements IPesels {
     public PeselCheck(String pesel){
         super();
-        this.day = returnDay(pesel);
         this.month = returnMonth(pesel);
         this.year = returnYear(pesel);
+        this.day = returnDay(pesel);
         this.serial = returnSerial(pesel);
         this.sex = returnSex(pesel);
         this.pesel = pesel;
-        this.dateOfBirth = returnDateOfBirth(this.day , this.month, this. year);
+        this.dateOfBirth = returnDateOfBirth(day , month, year);
         this.validationDigit = returnValidationDigit(pesel);
         this.isValidate = checkValidation(pesel);
-        this.isCorrect = checkIfCorrect(this.day, this.month, this.year);
+        this.isCorrect = checkIfCorrect(day, month, year);
     }
+
 
     private String returnDay(String pesel) {
         return pesel.substring(4,6);
@@ -37,8 +38,6 @@ public class PeselCheck extends Pesel implements IPesels {
         else{
             return String.valueOf(month);
         }
-
-
     }
     private String returnYear(String pesel) {
         int month = Integer.parseInt(String.valueOf(pesel).substring(2,4));
